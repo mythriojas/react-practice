@@ -35,7 +35,9 @@ togglePostsHandler= ()=>{
 
   render() {
     let posts=null;
-    
+    if(this.state.showPosts){
+      // posts=
+    }
     // setTimeout(() => {
     //   console.log("modifying data...");
     //   const posts = [...this.state.posts];
@@ -52,21 +54,22 @@ togglePostsHandler= ()=>{
       <div>
       
       <h2 className="text-2xl my-3">{this.state.postTitle}</h2>
-      <button onClick={this.togglePostsHandler} className="px-5 py-3 bg-red-500 text-white" >Toggle Posts</button>
+      <button onClick={this.togglePostsHandler} className="px-5 py-3 bg-red-500 text-white" >{this.state.showPosts ?'Hide posts' : 'Show posts'}</button>
      {/* <div>
         <a href="www.google.com" onClick={this.updateTitleHandler.bind(this,'Modidied Title')} className="px-2 py-5 bg-red-500 rounded-3xl text-white">Update Post Title Via Func</a>
         <a href="www.google.com" onClick={this.titleHandler.bind(this,'Modidied Title')} className="px-2 py-5 bg-red-500 rounded-3xl text-white">Update Post Via Prop Title</a>
      </div>  */}
-        <div className="flex my-3">
-          <SinglePost
-            title={this.state.posts[0].title}
-            description={this.state.posts[0].description}
-          ></SinglePost>
-          <SinglePost
-            title={this.state.posts[1].title}
-            description={this.state.posts[1].description}
-          ></SinglePost>
-        </div>
+        <hr/>
+        {this.state.showPosts && (<div className="flex my-3">
+      <SinglePost
+        title={this.state.posts[0].title}
+        description={this.state.posts[0].description}
+      ></SinglePost>
+      <SinglePost
+        title={this.state.posts[1].title}
+        description={this.state.posts[1].description}
+      ></SinglePost>
+    </div>)}
       </div>
     );
   }
